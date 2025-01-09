@@ -27,7 +27,7 @@ function Footer() {
             <br />
             <ul className=" flex flex-col gap-[15px]">
               <li>
-                <NavLink to="/">Home</NavLink>
+                <NavLink to="/home">Home</NavLink>
               </li>
               <li>
                 <NavLink to="/explore">Explore</NavLink>
