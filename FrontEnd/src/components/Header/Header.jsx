@@ -3,6 +3,7 @@ import "@fontsource/poppins"; // Font styles
 import { NavLink, useLocation } from "react-router-dom";
 import SearchRecipe from "../SearchRecipe/SearchRecipe";
 import { useEffect } from "react";
+import axios from "axios"; 
 
 function Header() {
   const [search, setSearch] = useState("");
@@ -19,6 +20,8 @@ function Header() {
     setShowResults(true); // Show the `SearchRecipe` component
   };
 
+
+  
   return (
     <>
       <div

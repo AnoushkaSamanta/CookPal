@@ -47,6 +47,9 @@ app.post("/login",(req,res)=>{
     })
 })
 
+// Assuming 'dp' is the profile picture path in the user schema.
+
+
 app.listen(3001,()=>{
     console.log("Server is running")
 })

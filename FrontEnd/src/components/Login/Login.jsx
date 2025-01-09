@@ -36,7 +36,7 @@ function Login() {
         <p>Don't have an account?</p>
         <NavLink to="/signup" style={{ color: "#509E2F"}}>SignUp</NavLink>
         </div>
-      
+         
       </div>
     </div>
   )
