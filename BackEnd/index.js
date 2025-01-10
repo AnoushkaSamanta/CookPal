@@ -3,9 +3,11 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const cookieParser = require("cookie-parser");
 const UserModel = require("./models/User");
 
 const app = express();
+app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(
@@ -64,6 +66,24 @@ app.post("/login", (req, res) => {
     }
   });
 });
+
+app.post("/logout", (req, res) => {
+    res.cookie("token", "", {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+        sameSite: "lax",
+        maxAge: 1,
+        expires: new Date(0),
+        path:'/' // expire immediately
+      });
+
+      res.clearCookie('token', {
+        path: '/',
+        domain: 'localhost'
+      });
+      res.json({ success: true, message: "Logged out successfully" });
+    
+  });
 
 app.listen(3001, () => {
   console.log("Server is running");

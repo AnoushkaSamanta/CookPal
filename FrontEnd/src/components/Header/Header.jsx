@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "@fontsource/poppins"; // Font styles
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import SearchRecipe from "../SearchRecipe/SearchRecipe";
 import { useEffect } from "react";
 import axios from "axios"; 
@@ -9,6 +9,7 @@ function Header() {
   const [search, setSearch] = useState("");
   const [showResults, setShowResults] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   const handleSearch = (e) => {
     setSearch(e.target.value);
   };
@@ -21,7 +22,19 @@ function Header() {
   };
 
 
-  
+  const handleLogout = async () => {
+    try {
+      const response = await axios.post("http://localhost:3001/logout", {}, {
+        withCredentials: true
+      });
+      
+      if (response.data.success) {
+        window.location.href = '/';
+      }
+    } catch (error) {
+      console.error("Logout failed:", error);
+    }
+  };
   return (
     <>
       <div
@@ -105,6 +118,8 @@ function Header() {
             className="rounded-full h-[35px] w-[35px]"
           />
         </div>
+        
+        <div className="bg-red-500 text-white p-2 rounded-lg" onClick={handleLogout}>Logout</div>
       </div>
       {showResults && <SearchRecipe recipe={search} />}{" "}
       {/* Render SearchRecipe */}
