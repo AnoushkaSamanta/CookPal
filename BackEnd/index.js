@@ -74,7 +74,7 @@ app.post("/logout", (req, res) => {
     sameSite: "lax",
     maxAge: 1,
     expires: new Date(0),
-    path: "/", // expire immediately
+    path: "/", 
   });
 
   res.clearCookie("token", {
@@ -84,6 +84,9 @@ app.post("/logout", (req, res) => {
   res.json({ success: true, message: "Logged out successfully" });
 });
 
+
 app.listen(3001, () => {
   console.log("Server is running");
 });
+
+

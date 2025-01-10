@@ -30,11 +30,11 @@ function Login() {
         <form action="" className='flex flex-col gap-3 items-center mt-10' onSubmit={handleSubmit}>
         <input type="email" placeholder='Email' className='border-2 border-zinc-300 px-6 py-2 rounded-lg ' name='email' onChange={(e)=>setEmail(e.target.value)}/>
         <input type="password" placeholder='Password' className='border-2 border-zinc-300 px-6 py-2 rounded-lg ' name='password' onChange={(e)=>setPassword(e.target.value)}/>
-          <input type="submit" value="Login" className='w-1/3 px-4 py-2 text-white rounded-lg mt-4'  style={{backgroundColor: "#509E2F"}} />
+          <input type="submit" value="Login" className='w-1/3 px-4 py-2 text-white rounded-lg mt-4'  style={{backgroundColor: "#509E2F",cursor:"pointer"}} />
         </form>
         <div className='flex flex-row gap-2 mt-4'>
         <p>Don't have an account?</p>
-        <NavLink to="/signup" style={{ color: "#509E2F"}}>SignUp</NavLink>
+        <NavLink to="/signup" style={{ color: "#509E2F",cursor:"pointer"}}  >SignUp</NavLink>
         </div>
          
       </div>

@@ -119,7 +119,7 @@ function Header() {
           />
         </div>
         
-        <div className="bg-red-500 text-white p-2 rounded-lg" onClick={handleLogout}>Logout</div>
+        <div className="bg-red-500 text-white p-2 rounded-lg" style={{cursor:"pointer"}} onClick={handleLogout}>Logout</div>
       </div>
       {showResults && <SearchRecipe recipe={search} />}{" "}
       {/* Render SearchRecipe */}

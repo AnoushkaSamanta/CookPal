@@ -28,11 +28,11 @@ function SignUp() {
         <input type="text" placeholder='Name' className='border-2 border-zinc-300 px-6 py-2 rounded-lg ' name="name" onChange={(e)=>setName(e.target.value)}/>
           <input type="email" placeholder='Email' className='border-2 border-zinc-300 px-6 py-2 rounded-lg ' name='email' onChange={(e)=>setEmail(e.target.value)}/>
           <input type="password" placeholder='Password' className='border-2 border-zinc-300 px-6 py-2 rounded-lg ' name='password' onChange={(e)=>setPassword(e.target.value)}/>
-          <input type="submit" value="SignUp" className='w-1/3 px-4 py-2 text-white rounded-lg mt-4'  style={{backgroundColor: "#509E2F"}} />
+          <input type="submit" value="SignUp" className='w-1/3 px-4 py-2 text-white rounded-lg mt-4'  style={{backgroundColor: "#509E2F" ,cursor:"pointer"}} />
         </form>
         <div className='flex flex-row gap-2 mt-4'>
         <p>Already have an account?</p>
-        <NavLink to="/" style={{ color: "#509E2F"}}>Login</NavLink>
+        <NavLink to="/" style={{ color: "#509E2F", cursor:"pointer"}}>Login</NavLink>
         </div>
       
       </div>
