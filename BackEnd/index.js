@@ -34,7 +34,7 @@ app.post("/register", (req, res) => {
             httpOnly: true,
             secure: process.env.NODE_ENV === "production",
             sameSite: "lax",
-            maxAge: 24 * 60 * 60 * 1000, 
+            maxAge: 24 * 60 * 60 * 1000,
           });
           res.json(users);
         })
@@ -54,7 +54,7 @@ app.post("/login", (req, res) => {
             httpOnly: true,
             secure: process.env.NODE_ENV === "production",
             sameSite: "lax",
-            maxAge: 24 * 60 * 60 * 1000, 
+            maxAge: 24 * 60 * 60 * 1000,
           });
           res.json("Success");
         } else {
@@ -68,22 +68,21 @@ app.post("/login", (req, res) => {
 });
 
 app.post("/logout", (req, res) => {
-    res.cookie("token", "", {
-        httpOnly: true,
-        secure: process.env.NODE_ENV === "production",
-        sameSite: "lax",
-        maxAge: 1,
-        expires: new Date(0),
-        path:'/' // expire immediately
-      });
-
-      res.clearCookie('token', {
-        path: '/',
-        domain: 'localhost'
-      });
-      res.json({ success: true, message: "Logged out successfully" });
-    
+  res.cookie("token", "", {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "lax",
+    maxAge: 1,
+    expires: new Date(0),
+    path: "/", // expire immediately
   });
+
+  res.clearCookie("token", {
+    path: "/",
+    domain: "localhost",
+  });
+  res.json({ success: true, message: "Logged out successfully" });
+});
 
 app.listen(3001, () => {
   console.log("Server is running");
