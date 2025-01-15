@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { mealApi } from "../../api/axiosConfig"
 
 const RecipeDetail = () => {
   const [recipe, setRecipe] = useState(null);
@@ -11,7 +12,7 @@ const RecipeDetail = () => {
   useEffect(() => {
     const fetchRecipeDetail = async () => {
       try {
-        const response = await axios.get(
+        const response = await mealApi.get(
           `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`
         );
         if (response.data.meals) {
